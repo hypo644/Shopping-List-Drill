@@ -15,20 +15,23 @@
 // --create new box
 // --with new name
 
-  let shoppingItem = "<li><span class='shopping-item'>" + /*$('#shopping-list-entry').val()*/$('input:text').val() + "</span><div class='shopping-item-controls'><button class='shopping-item-toggle'><span class='button-label'>check</span></button><button class='shopping-item-delete'><span class='button-label'>delete</span></button></div></li>";
-
-  // let shoppingItem1 = "<li><span class='shopping-item'>";
-  
-  // let shoppingItem2 = $('input');
-
-  // let shoppingItem3 = "</span><div class='shopping-item-controls'><button class='shopping-item-toggle'><span class='button-label'>check</span></button><button class='shopping-item-delete'><span class='button-label'>delete</span></button></div></li>";
-
-  // let shoppingItem4 = `$(shoppingItem1)$(shoppingItem2)$(shoppingItem3)`;
-
   $("form").submit(function() {
     event.preventDefault();
-    // Add new item after last item of shopping list
-    $(".shopping-list:last-child").prepend(shoppingItem);
+    // Add new item before first item of shopping list
+    // let shoppingItem = "<li><span class='shopping-item'>" + $('#shopping-list-entry').val() + "</span><div class='shopping-item-controls'><button class='shopping-item-toggle'><span class='button-label'>check</span></button><button class='shopping-item-delete'><span class='button-label'>delete</span></button></div></li>";
+
+    let inputVal = $('#shopping-list-entry').val();
+    let shoppingItem = `<li><span class='shopping-item'>${inputVal}</span><div class='shopping-item-controls'><button class='shopping-item-toggle'><span class='button-label'>check</span></button><button class='shopping-item-delete'><span class='button-label'>delete</span></button></div></li>`;
+
+    // let shoppingItem1 = "<li><span class='shopping-item'>";
+  
+    // let shoppingItem2 = $('input');
+
+    // let shoppingItem3 = "</span><div class='shopping-item-controls'><button class='shopping-item-toggle'><span class='button-label'>check</span></button><button class='shopping-item-delete'><span class='button-label'>delete</span></button></div></li>";
+
+    // let shoppingItem4 = `$(shoppingItem1)$(shoppingItem2)$(shoppingItem3)`;
+    $(".shopping-list").prepend(shoppingItem);
+    // $(".shopping-list").prepend(`<li><span class='shopping-item'>${inputVal}</span><div class='shopping-item-controls'><button class='shopping-item-toggle'><span class='button-label'>check</span></button><button class='shopping-item-delete'><span class='button-label'>delete</span></button></div></li>`);
     //$("#shopping-list-form").find("input:text").val("");
     $('#js-shopping-list-form').trigger("reset");
   });
@@ -67,6 +70,3 @@
   });
 
 }(jQuery));
-
-// Space between check/delete buttons in new box
-// Add input text as new list item name
